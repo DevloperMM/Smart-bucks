@@ -41,11 +41,11 @@ function App() {
             <div className="w-full mb-1">
               <InputBox
                 label="From"
+                selectCurrency={from}
                 amt={amt}
+                onAmtChange={(amt) => setAmt(amt)}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setFrom(currency)}
-                selectCurrency={from}
-                onAmtChange={(amt) => setAmt(amt)}
               />
             </div>
             <div className="relative w-full h-0.5">

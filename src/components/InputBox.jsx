@@ -8,7 +8,6 @@ function InputBox({
   currencyOptions = [],
   selectCurrency = "usd",
   amtDisable = false,
-  currencyDisable = false,
 
   className = "",
 }) {
@@ -35,7 +34,6 @@ function InputBox({
           className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
           value={selectCurrency}
           onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
-          disabled={currencyDisable}
         >
           {currencyOptions.map((cry) => (
             <option key={cry} value={cry}>
