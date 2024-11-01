@@ -11,10 +11,17 @@ export default function useCurrencyInfo(currency) {
 
   useEffect(() => {
     const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/${currency}.json`;
+
+    const altUrl = `https://latest.currency-api.pages.dev/v1/currencies/${currency}.json`;
+
     setData(
       fetch(url)
+        .then((res) => {
+          if (!res.ok) return fetch(altUrl);
+          return res;
+        })
         .then((res) => res.json())
-        .then((res) => setData(res[currency]))
+        .then((result) => setData(result[currency]))
     );
   }, [currency]);
 
